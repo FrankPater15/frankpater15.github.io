@@ -69,7 +69,7 @@ export default function Navbar({ listo }) {
         transition={{ duration: 0.6, ease: EASE }}
         className="pointer-events-none fixed inset-x-0 top-4 z-50 flex justify-center px-4"
       >
-        <nav className="pointer-events-auto flex items-center gap-1 rounded-full border border-line bg-card p-1.5 pl-5 shadow-2xl shadow-black/20 backdrop-blur-2xl">
+        <nav className="pointer-events-auto flex items-center gap-1 rounded-full border border-line bg-solid/90 p-1.5 pl-5 shadow-2xl shadow-black/20 md:bg-card md:backdrop-blur-2xl">
           <a href="#inicio" className="mr-3 font-mono text-sm font-semibold text-accent">
             &lt;FP /&gt;
           </a>

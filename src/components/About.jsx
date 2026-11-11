@@ -40,7 +40,7 @@ export default function About() {
 
       <Reveal className="mt-6 block">
         <TiltCard intensidad={4} className="space-y-4 p-8 text-lg leading-relaxed text-muted">
-          {sobreMi.slice(1).map((p, i) => (
+          {sobreMi.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
         </TiltCard>

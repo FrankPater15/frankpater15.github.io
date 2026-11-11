@@ -14,14 +14,17 @@ export default function Particles({ className = "" }) {
     let w = 0, h = 0, puntos = [], frame = 0, visible = true;
     const mouse = { x: -9999, y: -9999 };
 
+    // En celular: menos partículas y resolución normal (no 3x), que es lo que más pesa
+    const tactil = window.matchMedia("(pointer: coarse)").matches;
+
     const medir = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = tactil ? 1 : Math.min(window.devicePixelRatio || 1, 2);
       w = canvas.offsetWidth;
       h = canvas.offsetHeight;
       canvas.width = w * dpr;
       canvas.height = h * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const n = Math.min(90, Math.floor((w * h) / 15000));
+      const n = Math.min(tactil ? 25 : 60, Math.floor((w * h) / 20000));
       puntos = Array.from({ length: n }, () => ({
         x: Math.random() * w,
         y: Math.random() * h,

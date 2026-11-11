@@ -11,8 +11,7 @@ export default function SmoothScroll({ children }) {
   useEffect(() => {
 
     const instancia = new Lenis({
-      duration: 1.25,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.12, // inercia suave pero ágil (antes se sentía "pesado")
       smoothWheel: true,
     });
     let frame;

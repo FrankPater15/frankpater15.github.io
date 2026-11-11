@@ -52,7 +52,6 @@ export default function Hero({ listo }) {
   const escalaFoto = useTransform(scrollYProgress, [0, 1], [1, 0.75]);
   const yFoto = useTransform(scrollYProgress, [0, 1], [0, 160]);
   const opacidad = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
-  const desenfoque = useTransform(scrollYProgress, [0, 0.75], ["blur(0px)", "blur(10px)"]);
 
   const aparecer = (delay) => ({
     initial: { opacity: 0, y: 24 },
@@ -64,7 +63,7 @@ export default function Hero({ listo }) {
     <section id="inicio" ref={ref} className="relative flex min-h-[100svh] items-center overflow-hidden pt-28 pb-20">
       <Particles className="absolute inset-0 size-full opacity-70" />
 
-      <motion.div style={{ opacity: opacidad, filter: desenfoque }} className="container-x relative grid items-center gap-12 md:grid-cols-[1.35fr_1fr]">
+      <motion.div style={{ opacity: opacidad }} className="container-x relative grid items-center gap-12 md:grid-cols-[1.35fr_1fr]">
         <div>
           <motion.div {...aparecer(0.3)} className="mb-6 flex flex-wrap items-center gap-3 text-sm">
             <span className="inline-flex items-center gap-2 rounded-full border border-line bg-card px-3 py-1.5 backdrop-blur">
@@ -128,7 +127,7 @@ export default function Hero({ listo }) {
             transition={{ duration: 1.3, delay: 0.2, ease: EASE }}
             className="relative size-56 md:size-80"
           >
-            <div className="absolute -inset-6 rounded-full bg-accent/20 blur-3xl" />
+            <div className="absolute -inset-10 rounded-full bg-[radial-gradient(closest-side,color-mix(in_srgb,var(--accent)_22%,transparent),transparent)]" />
             <div className="absolute inset-0 animate-[spin_10s_linear_infinite] rounded-full bg-[conic-gradient(var(--accent),transparent_35%,var(--accent-2),transparent_75%,var(--accent))] p-1" />
             <div className="absolute inset-1.5 overflow-hidden rounded-full border-4 border-bg bg-card">
               {sinFoto ? (
@@ -149,7 +148,7 @@ export default function Hero({ listo }) {
                     scale: { delay: 0.9 + i * 0.08, type: "spring" },
                     y: { duration: 3, repeat: Infinity, delay: i * 0.4, ease: "easeInOut" },
                   }}
-                  className="absolute rounded-full border border-line bg-card px-3 py-1 font-mono text-xs font-semibold text-accent shadow-lg backdrop-blur-xl"
+                  className="absolute rounded-full border border-line bg-solid px-3 py-1 font-mono text-xs font-semibold text-accent shadow-lg"
                   style={{ left: `${50 + 56 * Math.cos(angulo)}%`, top: `${50 + 56 * Math.sin(angulo)}%`, translate: "-50% -50%" }}
                 >
                   {t}

@@ -8,8 +8,8 @@ export function Reveal({ children, delay = 0, y = 40, className = "" }) {
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y, filter: "blur(8px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.9, delay, ease: EASE }}
     >
@@ -139,7 +139,7 @@ export function TiltCard({ children, className = "", intensidad = 8, ...props })
         onMouseMove={mover}
         onMouseLeave={soltar}
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className={`spotlight h-full rounded-3xl border border-line bg-card backdrop-blur-xl transition-colors duration-300 hover:border-accent/40 ${className}`}
+        className={`spotlight h-full rounded-3xl border border-line bg-card transition-colors duration-300 hover:border-accent/40 ${className}`}
         {...props}
       >
         {children}

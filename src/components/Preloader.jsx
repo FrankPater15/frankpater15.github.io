@@ -7,7 +7,7 @@ export default function Preloader({ alTerminar }) {
 
   useEffect(() => {
     // Contador propio con requestAnimationFrame (exacto y cancelable)
-    const DURACION = 1800;
+    const DURACION = 900;
     const suavizar = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
     let inicio = null;
     let frame;
@@ -17,7 +17,7 @@ export default function Preloader({ alTerminar }) {
       const t = Math.min(1, (ahora - inicio) / DURACION);
       setN(Math.round(suavizar(t) * 100));
       if (t < 1) frame = requestAnimationFrame(paso);
-      else espera = setTimeout(alTerminar, 300);
+      else espera = setTimeout(alTerminar, 150);
     };
     frame = requestAnimationFrame(paso);
     return () => {
@@ -31,7 +31,7 @@ export default function Preloader({ alTerminar }) {
     <motion.div
       initial={{ clipPath: "inset(0 0 0% 0)" }}
       exit={{ clipPath: "inset(0 0 100% 0)" }}
-      transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
+      transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
       className="fixed inset-0 z-[1000] flex flex-col justify-between bg-bg p-6 md:p-10"
     >
       <div className="flex justify-between font-mono text-sm text-muted">

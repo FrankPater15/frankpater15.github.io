@@ -13,7 +13,7 @@ export const perfil = {
     "Automatización con RPA y OCR",
   ],
   descripcion:
-    "Construyo aplicaciones de escritorio y web, y automatizo procesos con RPA, OCR e IA de visión. Busco mi primera posición como desarrollador.",
+    "Construyo aplicaciones de escritorio y web, y automatizo procesos con RPA, OCR e IA de visión.",
   ciudad: "Medellín, Antioquia",
   correo: "frank2018orono@gmail.com",
   github: "https://github.com/FrankPater15",
@@ -21,14 +21,22 @@ export const perfil = {
   cv: "cv.pdf", // pon tu hoja de vida en la carpeta /public
 };
 
+// ------------------------------------------------------------
+//  Cada sección cuenta algo distinto para no repetir:
+//   - Inicio: quién eres y qué haces (una línea).
+//   - Sobre mí: qué te mueve y cómo trabajas (sin logros ni cifras).
+//   - Cifras: los números.
+//   - Experiencia: los logros en detalle.
+//   - Proyectos: qué es cada cosa que construiste.
+// ------------------------------------------------------------
+
 // Frase grande que se ilumina palabra por palabra al hacer scroll
 export const frase =
-  "Diseñé y desarrollé Astrum, la plataforma que usan a diario los equipos de EDN Colombia, y automaticé procesos con RPA, OCR e IA de visión. Ahora busco mi primer rol como desarrollador.";
+  "Me gusta encontrar la tarea repetitiva que le quita tiempo a un equipo y convertirla en algo que se hace solo.";
 
 export const sobreMi = [
-  "Soy Tecnólogo en Análisis y Desarrollo de Software del SENA (2026). Hice mis prácticas durante seis meses en EDN Colombia. Allí diseñé y desarrollé Astrum, la plataforma interna de escritorio que usan los equipos de operación, comercial y PM.",
-  "Me gusta automatizar tareas repetitivas. Trabajé con robots RPA, lectura de documentos con OCR e IA de visión, integraciones con Microsoft Graph y tableros de reportes. También me importa la calidad: mantuve más de 1.000 pruebas automatizadas y despliegues por CI/CD.",
-  "Busco mi primera posición como desarrollador para aportar a un equipo de tecnología y seguir creciendo.",
+  "Lo que más disfruto es entender cómo trabaja un equipo y ver dónde la tecnología le puede ahorrar tiempo: un formulario que se llena solo, un documento que se valida sin revisarlo a mano o un reporte que llega listo.",
+  "Me importa que lo que entrego funcione y se pueda mantener, me comunico con claridad y me adapto rápido a herramientas nuevas. Ahora busco mi primera posición como desarrollador para aportar a un equipo y seguir creciendo.",
 ];
 
 export const estadisticas = [
@@ -81,7 +89,7 @@ export const proyectos = [
     color: "#2dd4bf",
     categoria: "Laboral",
     descripcion:
-      "Plataforma interna de escritorio para los equipos de operación, comercial y PM de EDN Colombia. Tiene actualización automática, firma de código y unas 145 versiones publicadas en 6 meses.",
+      "Aplicación de escritorio interna para los equipos de operación, comercial y PM, con actualización automática y firma de código.",
     stack: ["C#", ".NET", "CI/CD", "Pruebas"],
     imagen: "proyectos/astrum.jpg", // captura en /public (opcional)
     privado: true,
@@ -93,7 +101,7 @@ export const proyectos = [
     color: "#a78bfa",
     categoria: "Laboral",
     descripcion:
-      "Automatización de la radicación y renovación de certificados digitales, con puntos de aprobación humana y manejo de captchas.",
+      "Robots que radican y renuevan certificados digitales. Una persona aprueba los pasos clave y el robot se encarga del resto, incluidos los captchas.",
     stack: ["RPA", "Automatización"],
     animacion: "rpa", // portada animada (rpa | ocr)
     privado: true,
