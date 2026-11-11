@@ -1,93 +1,77 @@
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { Bot, Code2, Database, Server, Smartphone, Wrench } from "lucide-react";
+import { motion } from "framer-motion";
+import { Bot, Code2, Database, Heart, Languages, Server, Smartphone, Wrench } from "lucide-react";
 import { habilidades, habilidadesPersonales, idiomas } from "../data/portfolio";
-import { Card, Reveal, Section } from "./ui";
+import { Reveal, Section, TiltCard } from "./ui";
 
-const iconos = {
-  Backend: Server,
-  Frontend: Code2,
-  "Bases de datos": Database,
-  Móvil: Smartphone,
-  Automatización: Bot,
-  Herramientas: Wrench,
-};
+// Diseño "bento": cada categoría ocupa un tamaño distinto en la cuadrícula
+const celdas = [
+  { nombre: "Frontend", icono: Code2, clase: "md:col-span-2 md:row-span-2", grande: true },
+  { nombre: "Backend", icono: Server, clase: "" },
+  { nombre: "Bases de datos", icono: Database, clase: "" },
+  { nombre: "Automatización", icono: Bot, clase: "md:col-span-2" },
+  { nombre: "Móvil", icono: Smartphone, clase: "" },
+  { nombre: "Herramientas", icono: Wrench, clase: "md:col-span-2" },
+];
+
+function Celda({ titulo, Icono, children, grande }) {
+  return (
+    <TiltCard className="group flex h-full flex-col p-7">
+      <div className="mb-6 flex items-center justify-between">
+        <h3 className={`font-title font-bold ${grande ? "text-3xl" : "text-xl"}`}>{titulo}</h3>
+        <span className="grid size-11 place-items-center rounded-2xl bg-accent-soft text-accent transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12">
+          <Icono className="size-5" />
+        </span>
+      </div>
+      {children}
+    </TiltCard>
+  );
+}
 
 export default function Skills() {
-  const categorias = Object.keys(habilidades);
-  const [activa, setActiva] = useState(categorias[0]);
-
   return (
-    <Section id="habilidades" numero="02" titulo="Habilidades" alt>
-      {/* Pestañas */}
-      <Reveal className="mb-8 flex flex-wrap gap-2">
-        {categorias.map((c) => {
-          const Icono = iconos[c];
-          const seleccionada = c === activa;
-          return (
-            <button
-              key={c}
-              onClick={() => setActiva(c)}
-              className={`relative inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${
-                seleccionada ? "text-[#062a26]" : "text-muted hover:text-accent"
-              }`}
-            >
-              {seleccionada && (
-                <motion.span layoutId="pestana" className="absolute inset-0 rounded-xl bg-accent" transition={{ type: "spring", bounce: 0.2, duration: 0.5 }} />
+    <Section id="habilidades" numero="02" kicker="Habilidades" titulo="Mi caja de herramientas.">
+      <div className="grid auto-rows-[minmax(170px,auto)] gap-5 md:grid-cols-4">
+        {celdas.map((c, i) => (
+          <Reveal key={c.nombre} delay={(i % 4) * 0.08} className={c.clase}>
+            <Celda titulo={c.nombre} Icono={c.icono} grande={c.grande}>
+              <div className={`mt-auto flex flex-wrap gap-2 ${c.grande ? "gap-3" : ""}`}>
+                {habilidades[c.nombre].map((h, j) => (
+                  <motion.span
+                    key={h}
+                    initial={{ opacity: 0, scale: 0.6 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 + j * 0.05, type: "spring", stiffness: 260, damping: 18 }}
+                    whileHover={{ y: -4 }}
+                    className={`rounded-full border border-accent/25 bg-accent-soft font-mono font-semibold text-accent ${c.grande ? "px-5 py-2.5 text-base" : "px-3.5 py-1.5 text-sm"}`}
+                  >
+                    {h}
+                  </motion.span>
+                ))}
+              </div>
+              {c.grande && (
+                <p className="mt-6 text-sm text-muted">Interfaces rápidas, accesibles y animadas, como este portafolio.</p>
               )}
-              <Icono className="relative size-4" />
-              <span className="relative">{c}</span>
-            </button>
-          );
-        })}
-      </Reveal>
+            </Celda>
+          </Reveal>
+        ))}
 
-      <Reveal>
-        <Card className="min-h-40 p-6 md:p-8">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activa}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.25 }}
-              className="flex flex-wrap gap-3"
-            >
-              {habilidades[activa].map((h, i) => (
-                <motion.span
-                  key={h}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: i * 0.05 }}
-                  whileHover={{ y: -4 }}
-                  className="rounded-xl border border-accent/30 bg-accent-soft px-5 py-3 font-mono text-base font-semibold text-accent"
-                >
-                  {h}
-                </motion.span>
-              ))}
-            </motion.div>
-          </AnimatePresence>
-        </Card>
-      </Reveal>
+        <Reveal delay={0.1}>
+          <Celda titulo="Idiomas" Icono={Languages}>
+            <p className="mt-auto text-muted">{idiomas}</p>
+          </Celda>
+        </Reveal>
 
-      <div className="mt-8 grid gap-4 md:grid-cols-[2fr_1fr]">
-        <Reveal>
-          <Card className="h-full p-6">
-            <h3 className="mb-4 font-title font-semibold">Habilidades personales</h3>
-            <div className="flex flex-wrap gap-2">
+        <Reveal className="md:col-span-4" delay={0.15}>
+          <Celda titulo="Habilidades personales" Icono={Heart}>
+            <div className="mt-auto flex flex-wrap gap-2">
               {habilidadesPersonales.map((h) => (
-                <span key={h} className="rounded-full border border-line px-3 py-1 text-sm">
+                <span key={h} className="rounded-full border border-line px-4 py-1.5 text-sm">
                   {h}
                 </span>
               ))}
             </div>
-          </Card>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <Card className="h-full p-6">
-            <h3 className="mb-4 font-title font-semibold">Idiomas</h3>
-            <p className="text-muted">{idiomas}</p>
-          </Card>
+          </Celda>
         </Reveal>
       </div>
     </Section>

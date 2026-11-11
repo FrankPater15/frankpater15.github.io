@@ -1,3 +1,9 @@
+import { useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import SmoothScroll, { useLenis } from "./components/SmoothScroll";
+import Preloader from "./components/Preloader";
+import Cursor from "./components/Cursor";
+import Background from "./components/Background";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -7,12 +13,24 @@ import Projects from "./components/Projects";
 import Education from "./components/Education";
 import Contact from "./components/Contact";
 
-export default function App() {
+function Sitio() {
+  const [listo, setListo] = useState(false);
+  const lenis = useLenis();
+
+  // Sin scroll mientras carga el preloader
+  useEffect(() => {
+    if (!lenis) return;
+    listo ? lenis.start() : lenis.stop();
+  }, [listo, lenis]);
+
   return (
     <>
-      <Navbar />
-      <main>
-        <Hero />
+      <AnimatePresence>{!listo && <Preloader key="preloader" alTerminar={() => setListo(true)} />}</AnimatePresence>
+      <Background />
+      <Cursor />
+      <Navbar listo={listo} />
+      <main className="overflow-x-clip">
+        <Hero listo={listo} />
         <About />
         <Skills />
         <Experience />
@@ -20,9 +38,14 @@ export default function App() {
         <Education />
         <Contact />
       </main>
-      <footer className="border-t border-line py-8 text-center text-sm text-muted">
-        Diseñado y desarrollado por Frank Orono con React, Vite y Tailwind CSS · {new Date().getFullYear()}
-      </footer>
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <SmoothScroll>
+      <Sitio />
+    </SmoothScroll>
   );
 }

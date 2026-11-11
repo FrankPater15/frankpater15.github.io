@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } from "framer-motion";
 import { Menu, Moon, Sun, X } from "lucide-react";
+import { perfil } from "../data/portfolio";
+import { useLenis } from "./SmoothScroll";
+import { EASE } from "./ui";
 
 const enlaces = [
   { id: "sobre-mi", texto: "Sobre mí" },
@@ -26,7 +29,7 @@ function useSeccionActiva() {
   useEffect(() => {
     const obs = new IntersectionObserver(
       (entradas) => entradas.forEach((e) => e.isIntersecting && setActiva(e.target.id)),
-      { rootMargin: "-50% 0px -50% 0px" }
+      { rootMargin: "-45% 0px -45% 0px" }
     );
     document.querySelectorAll("main section[id]").forEach((s) => obs.observe(s));
     return () => obs.disconnect();
@@ -34,116 +37,118 @@ function useSeccionActiva() {
   return activa;
 }
 
-export default function Navbar() {
+export default function Navbar({ listo }) {
   const [abierto, setAbierto] = useState(false);
-  const [conFondo, setConFondo] = useState(false);
+  const [oculto, setOculto] = useState(false);
   const [oscuro, cambiarTema] = useTema();
   const activa = useSeccionActiva();
-  const { scrollYProgress } = useScroll();
+  const lenis = useLenis();
+  const { scrollY, scrollYProgress } = useScroll();
   const progreso = useSpring(scrollYProgress, { stiffness: 120, damping: 25 });
 
+  // Se esconde al bajar y aparece al subir
+  useMotionValueEvent(scrollY, "change", (v) => {
+    const anterior = scrollY.getPrevious() ?? 0;
+    setOculto(v > anterior && v > 250);
+  });
+
+  // Congela el scroll con el menú abierto
   useEffect(() => {
-    const onScroll = () => setConFondo(window.scrollY > 20);
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    if (!lenis) return;
+    abierto ? lenis.stop() : lenis.start();
+  }, [abierto, lenis]);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        conFondo || abierto ? "border-b border-line bg-bg/80 backdrop-blur-xl" : ""
-      }`}
-    >
-      {/* Barra de progreso de lectura */}
-      <motion.div style={{ scaleX: progreso }} className="absolute inset-x-0 top-0 h-0.5 origin-left bg-accent" />
+    <>
+      <motion.div style={{ scaleX: progreso }} className="fixed inset-x-0 top-0 z-[60] h-0.5 origin-left bg-gradient-to-r from-accent to-accent-2" />
 
-      <div className="mx-auto flex h-[70px] w-[min(1100px,100%-32px)] items-center justify-between">
-        <a href="#inicio" className="font-mono text-lg font-semibold text-accent">
-          &lt;FO /&gt;
-        </a>
-
-        <nav className="hidden items-center gap-7 text-sm md:flex">
-          {enlaces.map((e) => (
-            <a
-              key={e.id}
-              href={`#${e.id}`}
-              className={`relative transition-colors hover:text-accent ${activa === e.id ? "text-accent" : "text-muted"}`}
-            >
-              {e.texto}
-              {activa === e.id && (
-                <motion.span layoutId="subrayado" className="absolute -bottom-1.5 left-0 h-0.5 w-full rounded bg-accent" />
-              )}
-            </a>
-          ))}
-          <BotonTema oscuro={oscuro} onClick={cambiarTema} />
-          <a
-            href="#contacto"
-            className="rounded-lg border border-accent px-4 py-1.5 font-medium text-accent transition hover:bg-accent-soft"
-          >
-            Contacto
+      <motion.header
+        initial={{ y: -100, opacity: 0 }}
+        animate={listo ? { y: oculto && !abierto ? -110 : 0, opacity: 1 } : undefined}
+        transition={{ duration: 0.6, ease: EASE }}
+        className="pointer-events-none fixed inset-x-0 top-4 z-50 flex justify-center px-4"
+      >
+        <nav className="pointer-events-auto flex items-center gap-1 rounded-full border border-line bg-card p-1.5 pl-5 shadow-2xl shadow-black/20 backdrop-blur-2xl">
+          <a href="#inicio" className="mr-3 font-mono text-sm font-semibold text-accent">
+            &lt;FO /&gt;
           </a>
-        </nav>
 
-        <div className="flex items-center gap-2 md:hidden">
-          <BotonTema oscuro={oscuro} onClick={cambiarTema} />
+          <div className="hidden items-center md:flex">
+            {enlaces.map((e) => (
+              <a
+                key={e.id}
+                href={`#${e.id}`}
+                className={`relative rounded-full px-4 py-2 text-sm transition-colors ${activa === e.id ? "text-ink" : "text-muted hover:text-ink"}`}
+              >
+                {activa === e.id && (
+                  <motion.span layoutId="nav-activo" className="absolute inset-0 -z-10 rounded-full bg-accent-soft" transition={{ type: "spring", bounce: 0.25, duration: 0.6 }} />
+                )}
+                {e.texto}
+              </a>
+            ))}
+          </div>
+
+          <button
+            onClick={cambiarTema}
+            className="grid size-9 place-items-center rounded-full text-muted transition hover:bg-accent-soft hover:text-accent"
+            aria-label={oscuro ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span key={oscuro ? "sol" : "luna"} initial={{ rotate: -90, scale: 0 }} animate={{ rotate: 0, scale: 1 }} exit={{ rotate: 90, scale: 0 }} transition={{ duration: 0.25 }}>
+                {oscuro ? <Sun className="size-4" /> : <Moon className="size-4" />}
+              </motion.span>
+            </AnimatePresence>
+          </button>
+
+          <a href="#contacto" className="hidden rounded-full bg-accent px-5 py-2 text-sm font-semibold text-bg transition hover:brightness-110 md:inline-block">
+            Hablemos
+          </a>
+
           <button
             onClick={() => setAbierto(!abierto)}
-            className="rounded-lg p-2 text-accent"
+            className="grid size-9 place-items-center rounded-full bg-accent text-bg md:hidden"
             aria-label={abierto ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={abierto}
           >
-            {abierto ? <X /> : <Menu />}
+            {abierto ? <X className="size-4" /> : <Menu className="size-4" />}
           </button>
-        </div>
-      </div>
+        </nav>
+      </motion.header>
 
+      {/* Menú de pantalla completa en celular */}
       <AnimatePresence>
         {abierto && (
-          <motion.nav
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden md:hidden"
+          <motion.div
+            initial={{ clipPath: "circle(0% at 90% 40px)" }}
+            animate={{ clipPath: "circle(150% at 90% 40px)" }}
+            exit={{ clipPath: "circle(0% at 90% 40px)" }}
+            transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
+            className="fixed inset-0 z-40 flex flex-col justify-between bg-bg px-6 pt-28 pb-10 md:hidden"
           >
-            <div className="flex flex-col gap-1 px-4 pb-6">
-              {[...enlaces, { id: "contacto", texto: "Contacto" }].map((e) => (
-                <a
-                  key={e.id}
-                  href={`#${e.id}`}
-                  onClick={() => setAbierto(false)}
-                  className={`rounded-lg px-3 py-3 ${activa === e.id ? "bg-accent-soft text-accent" : "text-muted"}`}
-                >
-                  {e.texto}
-                </a>
+            <nav className="flex flex-col gap-2">
+              {[...enlaces, { id: "contacto", texto: "Contacto" }].map((e, i) => (
+                <div key={e.id} className="overflow-hidden">
+                  <motion.a
+                    href={`#${e.id}`}
+                    onClick={() => setAbierto(false)}
+                    initial={{ y: "100%" }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 + i * 0.06, ease: EASE }}
+                    className={`flex items-baseline gap-4 font-title text-4xl font-bold ${activa === e.id ? "text-accent" : ""}`}
+                  >
+                    <span className="font-mono text-sm text-muted">0{i + 1}</span>
+                    {e.texto}
+                  </motion.a>
+                </div>
               ))}
-            </div>
-          </motion.nav>
+            </nav>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="text-sm text-muted">
+              <p>{perfil.correo}</p>
+              <p>{perfil.ciudad}</p>
+            </motion.div>
+          </motion.div>
         )}
       </AnimatePresence>
-    </header>
-  );
-}
-
-function BotonTema({ oscuro, onClick }) {
-  return (
-    <button
-      onClick={onClick}
-      className="rounded-lg border border-line p-2 text-muted transition hover:border-accent hover:text-accent"
-      aria-label={oscuro ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
-    >
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.span
-          key={oscuro ? "luna" : "sol"}
-          initial={{ rotate: -90, opacity: 0 }}
-          animate={{ rotate: 0, opacity: 1 }}
-          exit={{ rotate: 90, opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className="block"
-        >
-          {oscuro ? <Sun className="size-4" /> : <Moon className="size-4" />}
-        </motion.span>
-      </AnimatePresence>
-    </button>
+    </>
   );
 }

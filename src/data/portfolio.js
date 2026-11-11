@@ -21,6 +21,10 @@ export const perfil = {
   cv: "cv.pdf", // pon tu hoja de vida en la carpeta /public
 };
 
+// Frase grande que se ilumina palabra por palabra al hacer scroll
+export const frase =
+  "Diseñé y desarrollé Astrum, la plataforma que usan a diario los equipos de EDN Colombia, y automaticé procesos con RPA, OCR e IA de visión. Ahora busco mi primer rol como desarrollador.";
+
 export const sobreMi = [
   "Soy Tecnólogo en Análisis y Desarrollo de Software del SENA (2026). Hice mis prácticas durante seis meses en EDN Colombia. Allí diseñé y desarrollé Astrum, la plataforma interna de escritorio que usan los equipos de operación, comercial y PM.",
   "Me gusta automatizar tareas repetitivas. Trabajé con robots RPA, lectura de documentos con OCR e IA de visión, integraciones con Microsoft Graph y tableros de reportes. También me importa la calidad: mantuve más de 1.000 pruebas automatizadas y despliegues por CI/CD.",
@@ -72,6 +76,8 @@ export const experiencia = [
 export const proyectos = [
   {
     nombre: "Astrum",
+    icono: "Monitor",
+    color: "#2dd4bf",
     categoria: "Laboral",
     descripcion:
       "Plataforma interna de escritorio para los equipos de operación, comercial y PM de EDN Colombia. Tiene actualización automática, firma de código y unas 145 versiones publicadas en 6 meses.",
@@ -81,6 +87,8 @@ export const proyectos = [
   },
   {
     nombre: "Robots RPA para certificados digitales",
+    icono: "Bot",
+    color: "#a78bfa",
     categoria: "Laboral",
     descripcion:
       "Automatización de la radicación y renovación de certificados digitales, con puntos de aprobación humana y manejo de captchas.",
@@ -89,6 +97,8 @@ export const proyectos = [
   },
   {
     nombre: "Validación de documentos con OCR",
+    icono: "ScanText",
+    color: "#38bdf8",
     categoria: "Laboral",
     descripcion:
       "Lectura automática de RUT, Cámara de Comercio y documentos de identidad con OCR e IA de visión para validar la información.",
@@ -97,6 +107,8 @@ export const proyectos = [
   },
   {
     nombre: "NailSoft",
+    icono: "Sparkles",
+    color: "#f472b6",
     categoria: "Académico",
     descripcion:
       "Aplicación web del SENA para administrar los servicios de un spa de uñas, con interfaz en React, servidor en Node.js y base de datos MongoDB.",
@@ -105,10 +117,12 @@ export const proyectos = [
   },
   {
     nombre: "Este portafolio",
+    icono: "Code2",
+    color: "#fbbf24",
     categoria: "Personal",
     descripcion:
-      "Sitio personal hecho con React, Vite y Tailwind CSS, con animaciones en Framer Motion, modo claro/oscuro y despliegue automático en GitHub Pages con GitHub Actions.",
-    stack: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
+      "Sitio personal en React con scroll suave (Lenis), animaciones ligadas al scroll con Framer Motion, cursor personalizado, modo claro/oscuro y despliegue automático con GitHub Actions.",
+    stack: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Lenis"],
     repo: "https://github.com/FrankPater15/frankpater15.github.io",
   },
 ];
