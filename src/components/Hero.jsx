@@ -85,7 +85,7 @@ export default function Hero() {
             <a href="#proyectos" className="group inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 font-semibold text-[#062a26] shadow-lg shadow-accent/25 transition hover:-translate-y-0.5">
               Ver proyectos <ArrowRight className="size-4 transition group-hover:translate-x-1" />
             </a>
-            <a href={publico(perfil.cv)} download className="inline-flex items-center gap-2 rounded-xl border border-accent px-6 py-3 font-semibold text-accent transition hover:-translate-y-0.5 hover:bg-accent-soft">
+            <a href={publico(perfil.cv)} download="Hoja_de_Vida_Frank_Orono.pdf" className="inline-flex items-center gap-2 rounded-xl border border-accent px-6 py-3 font-semibold text-accent transition hover:-translate-y-0.5 hover:bg-accent-soft">
               <Download className="size-4" /> Descargar CV
             </a>
           </motion.div>

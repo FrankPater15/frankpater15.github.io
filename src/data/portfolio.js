@@ -17,7 +17,7 @@ export const perfil = {
   ciudad: "Medellín, Antioquia",
   correo: "frank2018orono@gmail.com",
   github: "https://github.com/FrankPater15",
-  foto: "foto.png", // tu foto, en la carpeta /public
+  foto: "foto.jpg", // tu foto, en la carpeta /public
   cv: "cv.pdf", // pon tu hoja de vida en la carpeta /public
 };
 
