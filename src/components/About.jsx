@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { animate, useInView } from "framer-motion";
-import { estadisticas, frase, perfil, sobreMi } from "../data/portfolio";
+import { estadisticas, frase, sobreMi } from "../data/portfolio";
 import { Reveal, ScrollText, Section, TiltCard } from "./ui";
 
 function Contador({ valor, sufijo }) {
@@ -38,34 +38,13 @@ export default function About() {
         ))}
       </div>
 
-      <div className="mt-6 grid gap-6 md:grid-cols-[1.4fr_1fr]">
-        <Reveal>
-          <TiltCard intensidad={4} className="space-y-4 p-8 text-lg leading-relaxed text-muted">
-            {sobreMi.slice(1).map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </TiltCard>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <TiltCard className="overflow-hidden font-mono text-sm">
-            <div className="flex items-center gap-1.5 border-b border-line px-5 py-3">
-              <span className="size-3 rounded-full bg-muted/60" />
-              <span className="size-3 rounded-full bg-muted/40" />
-              <span className="size-3 rounded-full bg-muted/25" />
-              <span className="ml-2 text-xs text-muted">frank.json</span>
-            </div>
-            <pre className="overflow-x-auto p-6 leading-7 text-muted">
-{"{\n"}
-{"  "}<span className="text-accent-2">"rol"</span>: <span className="text-accent">"Full Stack Jr"</span>,{"\n"}
-{"  "}<span className="text-accent-2">"ciudad"</span>: <span className="text-accent">"{perfil.ciudad.split(",")[0]}"</span>,{"\n"}
-{"  "}<span className="text-accent-2">"stack"</span>: [<span className="text-accent">"C#"</span>, <span className="text-accent">"React"</span>],{"\n"}
-{"  "}<span className="text-accent-2">"aprendiendo"</span>: <span className="text-accent">"siempre"</span>,{"\n"}
-{"  "}<span className="text-accent-2">"disponible"</span>: <span className="text-ink">true</span>{"\n"}
-{"}"}
-            </pre>
-          </TiltCard>
-        </Reveal>
-      </div>
+      <Reveal className="mt-6 block">
+        <TiltCard intensidad={4} className="space-y-4 p-8 text-lg leading-relaxed text-muted">
+          {sobreMi.slice(1).map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        </TiltCard>
+      </Reveal>
     </Section>
   );
 }

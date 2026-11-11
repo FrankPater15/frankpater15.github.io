@@ -145,3 +145,29 @@ export const formacion = [
     fecha: "2018 – 2022",
   },
 ];
+
+// ============================================================
+//  CERTIFICADOS
+//  Para agregar uno nuevo:
+//   1. Copia el PDF (o imagen) en /public/certificados/
+//   2. Agrega un bloque aquí abajo (los más recientes primero).
+//  Campos opcionales: horas, serie, archivo, enlace (URL de verificación).
+// ============================================================
+export const certificados = [
+  {
+    nombre: "Pensamiento crítico y resolución de problemas",
+    entidad: "Santander Open Academy",
+    fecha: "Oct 2026",
+    horas: 8,
+    serie: "OA-2026-1013003332447",
+    archivo: "certificados/pensamiento-critico.pdf",
+  },
+  {
+    nombre: "Comunicación Efectiva",
+    entidad: "Santander Open Academy",
+    fecha: "Sep 2026",
+    horas: 8,
+    serie: "OA-2026-0928003254309",
+    archivo: "certificados/comunicacion-efectiva.pdf",
+  },
+];

@@ -11,6 +11,7 @@ const enlaces = [
   { id: "experiencia", texto: "Experiencia" },
   { id: "proyectos", texto: "Proyectos" },
   { id: "formacion", texto: "Formación" },
+  { id: "certificados", texto: "Certificados" },
 ];
 
 function useTema() {
