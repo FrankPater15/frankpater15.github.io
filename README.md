@@ -1,41 +1,39 @@
 # Portafolio – Frank Orono
 
-Portafolio personal hecho con HTML, CSS y JavaScript, sin frameworks.
+Portafolio personal hecho con **React 19, Vite, Tailwind CSS 4 y Framer Motion**.
 
-## Archivos
+🌐 https://frankpater15.github.io
 
-| Archivo      | Qué contiene                                   |
-|--------------|------------------------------------------------|
-| `index.html` | El contenido (textos, secciones, proyectos)     |
-| `styles.css` | Colores, tamaños, diseño para celular           |
-| `script.js`  | Menú, animaciones, efecto de escritura          |
-| `foto.jpg`   | Tu foto (agrégala tú, cuadrada si es posible)   |
-| `cv.pdf`     | Tu hoja de vida para el botón "Descargar CV"    |
+## Funciones
 
-## Verlo en tu computador
+- Modo claro y oscuro (se guarda la preferencia)
+- Efecto de máquina de escribir y animaciones al hacer scroll
+- Habilidades por pestañas y proyectos con filtros
+- Barra de progreso de lectura y menú adaptable a celular
+- Despliegue automático con GitHub Actions
 
-Haz doble clic en `index.html`.
+## Estructura
 
-## Publicarlo gratis en GitHub Pages
+```
+src/
+├── data/portfolio.js   ← TODOS los textos, proyectos y habilidades (edita aquí)
+├── components/         ← Navbar, Hero, About, Skills, Experience, Projects, Education, Contact
+├── App.jsx
+└── index.css           ← colores del tema
+public/
+├── foto.jpg            ← tu foto (agrégala)
+└── cv.pdf              ← tu hoja de vida (agrégala)
+```
 
-1. Entra a GitHub y crea un repositorio **público** llamado exactamente:
-   `FrankPater15.github.io` (sin README).
-2. En PowerShell, dentro de esta carpeta:
+## Comandos
 
-   ```powershell
-   git init
-   git add .
-   git commit -m "Primera versión del portafolio"
-   git branch -M main
-   git remote add origin https://github.com/FrankPater15/FrankPater15.github.io.git
-   git push -u origin main
-   ```
+```powershell
+npm install      # instalar dependencias (solo la primera vez)
+npm run dev      # ver la página en http://localhost:5173 mientras editas
+npm run build    # compilar para producción (carpeta dist)
+```
 
-3. En el repositorio, ve a **Settings → Pages**. En "Source" elige
-   **Deploy from a branch**, rama `main`, carpeta `/ (root)` y guarda.
-4. Espera 1 o 2 minutos y abre: **https://frankpater15.github.io**
-
-## Actualizarlo después
+## Publicar cambios
 
 ```powershell
 git add .
@@ -43,4 +41,5 @@ git commit -m "Describe el cambio"
 git push
 ```
 
-GitHub Pages se actualiza solo en uno o dos minutos.
+GitHub Actions compila y publica la página sola en 1 o 2 minutos.
+Puedes ver el progreso en la pestaña **Actions** del repositorio.
