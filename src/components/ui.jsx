@@ -54,7 +54,7 @@ export function SplitChars({ text, className = "", delay = 0, play = true }) {
   return (
     <span className={className} aria-label={text}>
       {text.split("").map((c, i) => (
-        <span key={i} aria-hidden className="inline-block overflow-hidden align-bottom">
+        <span key={i} aria-hidden className="-mr-[0.08em] inline-block overflow-hidden pr-[0.08em] align-bottom">
           <motion.span
             className="inline-block"
             initial={{ y: "110%" }}

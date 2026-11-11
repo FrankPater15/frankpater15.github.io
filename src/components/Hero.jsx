@@ -83,12 +83,12 @@ export default function Hero({ listo }) {
             {perfil.nombre} {perfil.apellido}
           </motion.p>
 
-          <h1 className="font-title text-[clamp(4rem,15vw,9.5rem)] leading-[0.88] font-extrabold tracking-tighter">
+          <h1 className="font-title text-[15.5vw] md:text-[7.8vw] xl:text-[6.4rem] leading-[0.88] font-extrabold tracking-tighter">
             <motion.span style={{ x: x1 }} className="block">
               <SplitChars text="FRANK" play={listo} delay={0.15} />
             </motion.span>
             <motion.span style={{ x: x2 }} className="block text-outline">
-              <SplitChars text="ORONO" play={listo} delay={0.3} />
+              <SplitChars text="PATERNINA" play={listo} delay={0.3} />
             </motion.span>
           </h1>
 
@@ -132,9 +132,9 @@ export default function Hero({ listo }) {
             <div className="absolute inset-0 animate-[spin_10s_linear_infinite] rounded-full bg-[conic-gradient(var(--accent),transparent_35%,var(--accent-2),transparent_75%,var(--accent))] p-1" />
             <div className="absolute inset-1.5 overflow-hidden rounded-full border-4 border-bg bg-card">
               {sinFoto ? (
-                <div className="grid size-full place-items-center font-title text-6xl font-extrabold text-accent">FO</div>
+                <div className="grid size-full place-items-center font-title text-6xl font-extrabold text-accent">FP</div>
               ) : (
-                <img src={publico(perfil.foto)} alt={`Foto de ${perfil.nombre}`} onError={() => setSinFoto(true)} className="size-full scale-105 object-cover grayscale transition duration-700 hover:grayscale-0" />
+                <img src={publico(perfil.foto)} alt={`Foto de ${perfil.nombre}`} onError={() => setSinFoto(true)} className="size-full scale-105 object-cover" />
               )}
             </div>
             {tecnologias.map((t, i) => {

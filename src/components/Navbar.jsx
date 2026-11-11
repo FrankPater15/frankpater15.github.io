@@ -70,7 +70,7 @@ export default function Navbar({ listo }) {
       >
         <nav className="pointer-events-auto flex items-center gap-1 rounded-full border border-line bg-card p-1.5 pl-5 shadow-2xl shadow-black/20 backdrop-blur-2xl">
           <a href="#inicio" className="mr-3 font-mono text-sm font-semibold text-accent">
-            &lt;FO /&gt;
+            &lt;FP /&gt;
           </a>
 
           <div className="hidden items-center md:flex">

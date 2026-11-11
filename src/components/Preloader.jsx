@@ -35,7 +35,7 @@ export default function Preloader({ alTerminar }) {
       className="fixed inset-0 z-[1000] flex flex-col justify-between bg-bg p-6 md:p-10"
     >
       <div className="flex justify-between font-mono text-sm text-muted">
-        <span className="text-accent">&lt;FO /&gt;</span>
+        <span className="text-accent">&lt;FP /&gt;</span>
         <span>Portafolio · {new Date().getFullYear()}</span>
       </div>
 

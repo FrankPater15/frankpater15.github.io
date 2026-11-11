@@ -109,9 +109,9 @@ export default function Contact() {
           <motion.p
             style={{ y: yNombre }}
             aria-hidden
-            className="mt-6 bg-gradient-to-b from-ink/25 to-transparent bg-clip-text text-center font-title text-[13.5vw] leading-[0.8] font-extrabold tracking-tighter whitespace-nowrap text-transparent select-none"
+            className="mt-6 bg-gradient-to-b from-ink/25 to-transparent bg-clip-text text-center font-title text-[10vw] leading-[0.8] font-extrabold tracking-tighter whitespace-nowrap text-transparent select-none"
           >
-            FRANK ORONO
+            FRANK PATERNINA
           </motion.p>
         </div>
       </footer>
