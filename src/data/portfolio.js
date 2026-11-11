@@ -15,7 +15,7 @@ export const perfil = {
   descripcion:
     "Construyo aplicaciones de escritorio y web, y automatizo procesos con RPA, OCR e IA de visión.",
   ciudad: "Medellín, Antioquia",
-  correo: "frank2018orono@gmail.com",
+  correo: "frank.paternina.dev@gmail.com",
   github: "https://github.com/FrankPater15",
   foto: "foto.jpg", // tu foto, en la carpeta /public
   cv: "cv.pdf", // pon tu hoja de vida en la carpeta /public
