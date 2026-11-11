@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frank Orono | Desarrollador Full Stack</title>
+  <meta name="description" content="Portafolio de Frank Javier Orono Paternina, Tecnólogo en Análisis y Desarrollo de Software y Desarrollador Full Stack Junior en Medellín." />
+  <meta property="og:title" content="Frank Orono | Desarrollador Full Stack" />
+  <meta property="og:description" content="C# · .NET · React · Node.js · Angular · SQL Server · RPA · OCR" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2311161f'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='%232dd4bf' font-family='monospace' font-weight='bold'>FO</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== NAVEGACIÓN ===== -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#inicio" class="nav__logo">&lt;FO /&gt;</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav__links" id="navLinks">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#formacion">Formación</a>
+        <a href="#contacto" class="btn btn--small">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="inicio">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <p class="hero__hello mono">Hola, mi nombre es</p>
+          <h1 class="hero__name">Frank Javier<br /><span>Orono Paternina</span></h1>
+          <h2 class="hero__role">
+            <span class="mono">&gt;</span> <span id="typed"></span><span class="cursor">|</span>
+          </h2>
+          <p class="hero__desc">
+            Tecnólogo en Análisis y Desarrollo de Software (SENA) en Medellín. Construyo aplicaciones
+            de escritorio y web y automatizo procesos con <strong>RPA, OCR e IA de visión</strong>.
+          </p>
+          <div class="hero__actions">
+            <a href="#proyectos" class="btn">Ver proyectos</a>
+            <a href="cv.pdf" class="btn btn--ghost" download>Descargar CV</a>
+          </div>
+          <div class="hero__social">
+            <a href="https://github.com/FrankPater15" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+            </a>
+            <a href="mailto:frank2018orono@gmail.com" aria-label="Correo">
+              <svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2.3V17h16V7.3l-8 5.6-8-5.6ZM5.4 7l6.6 4.6L18.6 7H5.4Z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__photo">
+          <div class="photo-ring">
+            <img src="foto.jpg" alt="Foto de Frank Orono" onerror="this.remove()" />
+            <span class="photo-fallback">FO</span>
+          </div>
+          <div class="code-card mono" aria-hidden="true">
+            <span class="k">const</span> frank = {<br />
+            &nbsp;&nbsp;rol: <span class="s">"Full Stack Jr"</span>,<br />
+            &nbsp;&nbsp;ciudad: <span class="s">"Medellín"</span>,<br />
+            &nbsp;&nbsp;disponible: <span class="b">true</span><br />
+            };
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SOBRE MÍ ===== -->
+    <section class="section" id="sobre-mi">
+      <div class="container">
+        <h2 class="section__title reveal"><span class="mono">01.</span> Sobre mí</h2>
+        <div class="about reveal">
+          <div class="about__text">
+            <p>
+              Soy <strong>Tecnólogo en Análisis y Desarrollo de Software</strong> del SENA (2026). Hice mis
+              prácticas durante seis meses en <strong>EDN Colombia</strong>. Allí diseñé y desarrollé
+              <strong>Astrum</strong>, la plataforma interna de escritorio que usan los equipos de
+              operación, comercial y PM.
+            </p>
+            <p>
+              Me gusta automatizar tareas repetitivas. Trabajé con robots RPA, lectura de documentos con
+              OCR e IA de visión, integraciones con Microsoft Graph y tableros de reportes. También me
+              importa la calidad: mantuve más de 1.000 pruebas automatizadas y despliegues por CI/CD.
+            </p>
+            <p>
+              Busco mi <strong>primera posición como desarrollador</strong> para aportar a un equipo de
+              tecnología y seguir creciendo.
+            </p>
+          </div>
+          <div class="stats">
+            <div class="stat"><span class="stat__num" data-count="145">0</span><span class="stat__label">versiones publicadas de Astrum</span></div>
+            <div class="stat"><span class="stat__num" data-count="1000" data-suffix="+">0</span><span class="stat__label">pruebas automatizadas</span></div>
+            <div class="stat"><span class="stat__num" data-count="6">0</span><span class="stat__label">meses de experiencia</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HABILIDADES ===== -->
+    <section class="section section--alt" id="habilidades">
+      <div class="container">
+        <h2 class="section__title reveal"><span class="mono">02.</span> Habilidades</h2>
+        <div class="skills">
+          <article class="skill-card reveal">
+            <h3>Backend</h3>
+            <ul class="chips"><li>C#</li><li>.NET</li><li>Node.js</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <h3>Frontend</h3>
+            <ul class="chips"><li>React</li><li>Angular</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>Tailwind CSS</li><li>Vite</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <h3>Bases de datos</h3>
+            <ul class="chips"><li>SQL Server</li><li>MongoDB</li><li>Supabase</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <h3>Móvil</h3>
+            <ul class="chips"><li>Flutter</li><li>Dart</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <h3>Automatización</h3>
+            <ul class="chips"><li>RPA</li><li>OCR</li><li>IA de visión</li><li>Microsoft Graph</li></ul>
+          </article>
+          <article class="skill-card reveal">
+            <h3>Herramientas</h3>
+            <ul class="chips"><li>Git</li><li>GitHub</li><li>CI/CD</li><li>Pruebas automatizadas</li><li>Metodologías ágiles</li></ul>
+          </article>
+        </div>
+        <div class="soft reveal">
+          <h3>Habilidades personales</h3>
+          <ul class="chips chips--soft">
+            <li>Trabajo en equipo</li><li>Comunicación efectiva</li><li>Resolución de problemas</li>
+            <li>Proactividad y puntualidad</li><li>Adaptabilidad</li>
+          </ul>
+          <p class="langs"><strong>Idiomas:</strong> Español (nativo) · Inglés A2 (básico)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCIA ===== -->
+    <section class="section" id="experiencia">
+      <div class="container">
+        <h2 class="section__title reveal"><span class="mono">03.</span> Experiencia</h2>
+        <div class="timeline">
+          <article class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <span class="timeline__date mono">Abr 2026 – Oct 2026</span>
+              <h3>Practicante – Auxiliar del Área de Implementaciones</h3>
+              <p class="timeline__company">EDN Colombia</p>
+              <ul class="bullets">
+                <li>Diseñé y desarrollé <strong>Astrum</strong>, la plataforma interna de escritorio de los equipos de operación, comercial y PM: unas 145 versiones en 6 meses, con actualización automática y firma de código.</li>
+                <li>Automaticé la radicación y renovación de certificados digitales con robots RPA, con puntos de aprobación humana y manejo de captchas.</li>
+                <li>Implementé la lectura de documentos con OCR e IA de visión para validar RUT, Cámara de Comercio y documentos de identidad.</li>
+                <li>Construí tableros de cumplimiento de facturación electrónica y reportes ejecutivos automáticos para aliados.</li>
+                <li>Integré Microsoft Graph (Outlook y SharePoint), autenticación con Microsoft y APIs de terceros.</li>
+                <li>Mantuve más de 1.000 pruebas automatizadas y despliegues por CI/CD.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROYECTOS ===== -->
+    <section class="section section--alt" id="proyectos">
+      <div class="container">
+        <h2 class="section__title reveal"><span class="mono">04.</span> Proyectos</h2>
+        <div class="projects">
+          <article class="project reveal">
+            <div class="project__top">
+              <span class="project__tag">Proyecto laboral · interno</span>
+            </div>
+            <h3>Astrum</h3>
+            <p>Plataforma interna de escritorio para los equipos de operación, comercial y PM de EDN Colombia. Tiene actualización automática, firma de código y unas 145 versiones publicadas en 6 meses.</p>
+            <ul class="project__stack mono"><li>C#</li><li>.NET</li><li>CI/CD</li><li>Pruebas</li></ul>
+            <p class="project__note">Código privado de la empresa</p>
+          </article>
+
+          <article class="project reveal">
+            <div class="project__top">
+              <span class="project__tag">Automatización</span>
+            </div>
+            <h3>Robots RPA para certificados digitales</h3>
+            <p>Automatización de la radicación y renovación de certificados digitales, con puntos de aprobación humana y manejo de captchas.</p>
+            <ul class="project__stack mono"><li>RPA</li><li>Automatización</li></ul>
+            <p class="project__note">Código privado de la empresa</p>
+          </article>
+
+          <article class="project reveal">
+            <div class="project__top">
+              <span class="project__tag">IA · Documentos</span>
+            </div>
+            <h3>Validación de documentos con OCR</h3>
+            <p>Lectura automática de RUT, Cámara de Comercio y documentos de identidad con OCR e IA de visión para validar la información.</p>
+            <ul class="project__stack mono"><li>OCR</li><li>IA de visión</li><li>Microsoft Graph</li></ul>
+            <p class="project__note">Código privado de la empresa</p>
+          </article>
+
+          <article class="project reveal">
+            <div class="project__top">
+              <span class="project__tag">Proyecto SENA</span>
+              <a href="https://github.com/IHomoSapienI/ProyectoNailSoft" target="_blank" rel="noopener" class="project__link" aria-label="Ver NailSoft en GitHub">
+                <svg viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+              </a>
+            </div>
+            <h3>NailSoft</h3>
+            <p>Aplicación web para administrar los servicios de un spa de uñas, con interfaz en React, servidor en Node.js y base de datos MongoDB.</p>
+            <ul class="project__stack mono"><li>React</li><li>Node.js</li><li>MongoDB</li></ul>
+            <a href="https://github.com/IHomoSapienI/ProyectoNailSoft" target="_blank" rel="noopener" class="project__more">Ver repositorio →</a>
+          </article>
+
+          <article class="project reveal">
+            <div class="project__top">
+              <span class="project__tag">Personal</span>
+              <a href="https://github.com/FrankPater15" target="_blank" rel="noopener" class="project__link" aria-label="Ver mi GitHub">
+                <svg viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+              </a>
+            </div>
+            <h3>Este portafolio</h3>
+            <p>Sitio personal hecho desde cero, sin frameworks: diseño adaptable a celular, animaciones al hacer scroll y publicado en GitHub Pages.</p>
+            <ul class="project__stack mono"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FORMACIÓN ===== -->
+    <section class="section" id="formacion">
+      <div class="container">
+        <h2 class="section__title reveal"><span class="mono">05.</span> Formación</h2>
+        <div class="edu">
+          <article class="edu__item reveal">
+            <span class="edu__year mono">2023 – 2026</span>
+            <h3>Tecnólogo en Análisis y Desarrollo de Software</h3>
+            <p>SENA – Centro de Servicios y Gestión Empresarial, Medellín</p>
+            <p class="edu__extra">Título: 29 de octubre de 2026</p>
+          </article>
+          <article class="edu__item reveal">
+            <span class="edu__year mono">2022</span>
+            <h3>Técnico laboral en Asistente de Soporte, Mantenimiento y Visualización de Bases de Datos</h3>
+            <p>Institución Universitaria ITM</p>
+          </article>
+          <article class="edu__item reveal">
+            <span class="edu__year mono">2018 – 2022</span>
+            <h3>Bachiller en Media Técnica, especialidad Informática/TIC</h3>
+            <p>Institución Educativa El Pinal</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section class="section section--alt" id="contacto">
+      <div class="container contact reveal">
+        <h2 class="section__title section__title--center"><span class="mono">06.</span> Contacto</h2>
+        <p class="contact__text">
+          Estoy buscando mi primera oportunidad como desarrollador. Si tienes una vacante o un proyecto,
+          escríbeme y te respondo pronto.
+        </p>
+        <div class="contact__actions">
+          <a href="mailto:frank2018orono@gmail.com" class="btn">Escríbeme un correo</a>
+          <button class="btn btn--ghost" id="copyEmail" type="button">Copiar correo</button>
+        </div>
+        <p class="contact__email mono">frank2018orono@gmail.com</p>
+        <p class="contact__city">📍 Medellín, Antioquia · Colombia</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Diseñado y desarrollado por Frank Orono · <span id="year"></span></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
