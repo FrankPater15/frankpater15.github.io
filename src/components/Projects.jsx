@@ -1,12 +1,34 @@
 import { ArrowUpRight, Bot, Code2, Lock, Monitor, ScanText, Sparkles } from "lucide-react";
 import { proyectos } from "../data/portfolio";
-import { GithubIcon, Reveal, Section, TiltCard } from "./ui";
+import { AnimacionOCR, AnimacionRPA } from "./ProjectAnimations";
+import { GithubIcon, publico, Reveal, Section, TiltCard } from "./ui";
 
 const iconos = { Monitor, Bot, ScanText, Sparkles, Code2 };
+// Portadas animadas para proyectos sin captura (campo "animacion" en portfolio.js)
+const animaciones = { rpa: AnimacionRPA, ocr: AnimacionOCR };
 
 // Portada en blanco y negro: cuadrícula + mini "ventana" de aplicación
 function Portada({ p, i, className = "" }) {
   const Icono = iconos[p.icono] || Code2;
+  const Animacion = animaciones[p.animacion];
+
+  // Si el proyecto tiene captura, se muestra la imagen
+  if (p.imagen) {
+    return (
+      <div className={`relative overflow-hidden bg-accent-soft ${className}`}>
+        <img
+          src={publico(p.imagen)}
+          alt={`Captura de ${p.nombre}`}
+          loading="lazy"
+          className="absolute inset-0 size-full object-cover object-center transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+        />
+        <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/50 to-transparent" />
+        <span className="absolute top-5 left-6 font-mono text-sm text-white/80">0{i + 1}</span>
+        <span className="absolute top-5 right-6 rounded-full border border-white/20 bg-black/50 px-3 py-1 font-mono text-xs text-white backdrop-blur">{p.categoria}</span>
+      </div>
+    );
+  }
+
   return (
     <div className={`relative overflow-hidden bg-accent-soft ${className}`}>
       <div
@@ -18,7 +40,10 @@ function Portada({ p, i, className = "" }) {
         }}
       />
       <span className="absolute top-5 left-6 font-mono text-sm text-muted">0{i + 1}</span>
-      <span className="absolute top-5 right-6 rounded-full border border-line bg-bg/60 px-3 py-1 font-mono text-xs backdrop-blur">{p.categoria}</span>
+      <span className="absolute top-5 right-6 z-10 rounded-full border border-line bg-bg/60 px-3 py-1 font-mono text-xs backdrop-blur">{p.categoria}</span>
+      {Animacion ? (
+        <Animacion />
+      ) : (
       <div className="absolute right-8 -bottom-1 left-12 rounded-t-2xl border border-line bg-solid p-4 shadow-2xl transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-3">
         <div className="mb-3 flex gap-1.5">
           <span className="size-2 rounded-full bg-muted/60" />
@@ -36,6 +61,7 @@ function Portada({ p, i, className = "" }) {
           </div>
         </div>
       </div>
+      )}
     </div>
   );
 }

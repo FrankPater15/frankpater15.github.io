@@ -60,6 +60,7 @@ export const experiencia = [
   {
     cargo: "Practicante – Auxiliar del Área de Implementaciones",
     empresa: "EDN Colombia",
+    logo: "logos/edn.png", // PNG con fondo transparente, en /public
     fecha: "Abr 2026 – Oct 2026",
     logros: [
       "Diseñé y desarrollé Astrum, la plataforma interna de escritorio de los equipos de operación, comercial y PM: unas 145 versiones en 6 meses, con actualización automática y firma de código.",
@@ -82,6 +83,7 @@ export const proyectos = [
     descripcion:
       "Plataforma interna de escritorio para los equipos de operación, comercial y PM de EDN Colombia. Tiene actualización automática, firma de código y unas 145 versiones publicadas en 6 meses.",
     stack: ["C#", ".NET", "CI/CD", "Pruebas"],
+    imagen: "proyectos/astrum.jpg", // captura en /public (opcional)
     privado: true,
     destacado: true,
   },
@@ -93,6 +95,7 @@ export const proyectos = [
     descripcion:
       "Automatización de la radicación y renovación de certificados digitales, con puntos de aprobación humana y manejo de captchas.",
     stack: ["RPA", "Automatización"],
+    animacion: "rpa", // portada animada (rpa | ocr)
     privado: true,
   },
   {
@@ -103,6 +106,7 @@ export const proyectos = [
     descripcion:
       "Lectura automática de RUT, Cámara de Comercio y documentos de identidad con OCR e IA de visión para validar la información.",
     stack: ["OCR", "IA de visión", "Microsoft Graph"],
+    animacion: "ocr",
     privado: true,
   },
   {
@@ -113,6 +117,7 @@ export const proyectos = [
     descripcion:
       "Aplicación web del SENA para administrar los servicios de un spa de uñas, con interfaz en React, servidor en Node.js y base de datos MongoDB.",
     stack: ["React", "Node.js", "MongoDB"],
+    imagen: "proyectos/nailsoft.jpg",
     repo: "https://github.com/IHomoSapienI/ProyectoNailSoft",
   },
   {
@@ -123,6 +128,7 @@ export const proyectos = [
     descripcion:
       "Sitio personal en React con scroll suave (Lenis), animaciones ligadas al scroll con Framer Motion, cursor personalizado, modo claro/oscuro y despliegue automático con GitHub Actions.",
     stack: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Lenis"],
+    imagen: "proyectos/portafolio.jpg",
     repo: "https://github.com/FrankPater15/frankpater15.github.io",
   },
 ];

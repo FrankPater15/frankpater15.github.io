@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { Briefcase } from "lucide-react";
 import { experiencia } from "../data/portfolio";
-import { Reveal, Section } from "./ui";
+import { publico, Reveal, Section } from "./ui";
 
 // La columna izquierda se queda fija mientras la línea se "dibuja" con el scroll
 function Puesto({ exp }) {
@@ -17,6 +17,24 @@ function Puesto({ exp }) {
           <span className="inline-flex items-center gap-2 rounded-full border border-line bg-card px-3 py-1 font-mono text-xs text-accent backdrop-blur">
             <Briefcase className="size-3.5" /> {exp.fecha}
           </span>
+          {exp.logo && (
+            // El logo se "pinta" con el color del tema (negro en claro, blanco en oscuro)
+            <div
+              role="img"
+              aria-label={`Logo de ${exp.empresa}`}
+              className="mt-6 aspect-[5/2] w-44 bg-ink md:w-52"
+              style={{
+                maskImage: `url(${publico(exp.logo)})`,
+                WebkitMaskImage: `url(${publico(exp.logo)})`,
+                maskSize: "contain",
+                WebkitMaskSize: "contain",
+                maskRepeat: "no-repeat",
+                WebkitMaskRepeat: "no-repeat",
+                maskPosition: "left center",
+                WebkitMaskPosition: "left center",
+              }}
+            />
+          )}
           <h3 className="mt-5 font-title text-3xl leading-tight font-bold md:text-4xl">{exp.empresa}</h3>
           <p className="mt-2 text-lg text-muted">{exp.cargo}</p>
         </Reveal>
