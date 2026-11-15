@@ -1,4 +1,4 @@
-import { ArrowUpRight, Bot, Code2, Lock, Monitor, ScanText, Sparkles } from "lucide-react";
+import { ArrowUpRight, Bot, Code2, Globe, Lock, Monitor, ScanText, Smartphone, Sparkles } from "lucide-react";
 import { proyectos } from "../data/portfolio";
 import { AnimacionOCR, AnimacionRPA } from "./ProjectAnimations";
 import { GithubIcon, publico, Reveal, Section, TiltCard } from "./ui";
@@ -104,9 +104,21 @@ function Tarjeta({ p, i, destacada = false }) {
               <Lock className="size-3.5" /> Código privado de la empresa
             </span>
           ) : (
-            <a href={p.repo} target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 font-semibold underline-offset-4 hover:underline">
-              <GithubIcon className="size-4" /> Ver en GitHub
-            </a>
+            <div className="flex flex-wrap gap-x-5 gap-y-2">
+              {p.demo && (
+                <a href={p.demo} target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 font-semibold underline-offset-4 hover:underline">
+                  <Globe className="size-4" /> Ver demo
+                </a>
+              )}
+              <a href={p.repo} target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 font-semibold underline-offset-4 hover:underline">
+                <GithubIcon className="size-4" /> Ver en GitHub
+              </a>
+              {p.apk && (
+                <a href={p.apk} target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 font-semibold underline-offset-4 hover:underline">
+                  <Smartphone className="size-4" /> App Android
+                </a>
+              )}
+            </div>
           )}
         </div>
       </div>

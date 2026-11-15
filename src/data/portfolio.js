@@ -123,10 +123,12 @@ export const proyectos = [
     color: "#f472b6",
     categoria: "Académico",
     descripcion:
-      "Aplicación web del SENA para administrar los servicios de un spa de uñas, con interfaz en React, servidor en Node.js y base de datos MongoDB.",
-    stack: ["React", "Node.js", "MongoDB"],
+      "Rediseño completo del proyecto de mi equipo del SENA: reservas en línea para un spa de uñas, panel de ventas e inventario y app Android para las estilistas. Cerré huecos de seguridad, hice un sistema de diseño propio y agregué más de 240 pruebas automáticas con CI.",
+    stack: ["React", "Node.js", "MongoDB", "Flutter", "Jest", "GitHub Actions"],
     imagen: "proyectos/nailsoft.jpg",
-    repo: "https://github.com/IHomoSapienI/ProyectoNailSoft",
+    repo: "https://github.com/FrankPater15/NailSoftMejorado",
+    demo: "https://nailsoft-spa.web.app",
+    apk: "https://github.com/FrankPater15/NailSoftMejorado/releases/latest",
   },
   {
     nombre: "Este portafolio",
