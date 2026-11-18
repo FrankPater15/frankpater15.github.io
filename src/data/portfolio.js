@@ -9,11 +9,12 @@ export const perfil = {
   titulo: "Tecnólogo en Análisis y Desarrollo de Software",
   roles: [
     "Desarrollador Full Stack Junior",
-    "C# · .NET · React · Node.js",
-    "Automatización con RPA y OCR",
+    "Node.js · React · Angular · Python",
+    "Integraciones con APIs",
+    "Automatización con RPA, OCR e IA",
   ],
   descripcion:
-    "Construyo aplicaciones de escritorio y web, y automatizo procesos con RPA, OCR e IA de visión.",
+    "Construyo aplicaciones web y de escritorio, integro sistemas por medio de APIs y automatizo procesos con Python, RPA, OCR e IA.",
   ciudad: "Medellín, Antioquia",
   correo: "frank.paternina.dev@gmail.com",
   github: "https://github.com/FrankPater15",
@@ -46,12 +47,12 @@ export const estadisticas = [
 ];
 
 export const habilidades = {
-  Backend: ["C#", ".NET", "Node.js"],
+  Backend: ["Node.js", "Express", "Python", "APIs REST", "C#", ".NET"],
   Frontend: ["React", "Angular", "JavaScript", "HTML", "CSS", "Tailwind CSS", "Vite"],
   "Bases de datos": ["SQL Server", "MongoDB", "Supabase"],
   Móvil: ["Flutter", "Dart"],
-  Automatización: ["RPA", "OCR", "IA de visión", "Microsoft Graph"],
-  Herramientas: ["Git", "GitHub", "CI/CD", "Pruebas automatizadas", "Metodologías ágiles"],
+  Automatización: ["RPA con Python", "OCR", "IA de visión", "Agentes de IA", "Microsoft Graph"],
+  Herramientas: ["Git", "GitHub", "Postman", "CI/CD", "Azure (básico)", "Claude Code", "Pruebas automatizadas", "Metodologías ágiles"],
 };
 
 export const habilidadesPersonales = [
@@ -72,10 +73,11 @@ export const experiencia = [
     fecha: "Abr 2026 – Oct 2026",
     logros: [
       "Diseñé y desarrollé Astrum, la plataforma interna de escritorio de los equipos de operación, comercial y PM: unas 145 versiones en 6 meses, con actualización automática y firma de código.",
-      "Automaticé la radicación y renovación de certificados digitales con robots RPA, con puntos de aprobación humana y manejo de captchas.",
+      "Automaticé con Python la radicación y renovación de certificados digitales con robots RPA, con puntos de aprobación humana y manejo de captchas.",
       "Implementé la lectura de documentos con OCR e IA de visión para validar RUT, Cámara de Comercio y documentos de identidad.",
-      "Construí tableros de cumplimiento de facturación electrónica y reportes ejecutivos automáticos para aliados.",
-      "Integré Microsoft Graph (Outlook y SharePoint), autenticación con Microsoft y APIs de terceros.",
+      "Construí en Python tableros de cumplimiento de facturación electrónica y reportes ejecutivos automáticos para aliados.",
+      "Integré Microsoft Graph (Outlook y SharePoint), autenticación con Microsoft y APIs de terceros, probando los servicios con Postman.",
+      "Me reunía con las áreas para entender sus procesos, detectar tareas repetitivas y proponer cómo automatizarlas.",
       "Mantuve más de 1.000 pruebas automatizadas y despliegues por CI/CD.",
     ],
   },
