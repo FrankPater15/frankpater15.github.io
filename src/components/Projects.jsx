@@ -1,11 +1,11 @@
-import { ArrowUpRight, Bot, Code2, Globe, Lock, Monitor, ScanText, Smartphone, Sparkles } from "lucide-react";
+import { ArrowUpRight, Bot, Code2, Download, Globe, Lock, Map, Monitor, Radar, ScanText, Smartphone, Sparkles } from "lucide-react";
 import { proyectos } from "../data/portfolio";
-import { AnimacionOCR, AnimacionRPA } from "./ProjectAnimations";
+import { AnimacionOCR, AnimacionRadar, AnimacionRPA } from "./ProjectAnimations";
 import { GithubIcon, publico, Reveal, Section, TiltCard } from "./ui";
 
-const iconos = { Monitor, Bot, ScanText, Sparkles, Code2 };
+const iconos = { Monitor, Bot, ScanText, Sparkles, Code2, Map, Radar };
 // Portadas animadas para proyectos sin captura (campo "animacion" en portfolio.js)
-const animaciones = { rpa: AnimacionRPA, ocr: AnimacionOCR };
+const animaciones = { rpa: AnimacionRPA, ocr: AnimacionOCR, radar: AnimacionRadar };
 
 // Portada en blanco y negro: cuadrícula + mini "ventana" de aplicación
 function Portada({ p, i, className = "" }) {
@@ -101,7 +101,7 @@ function Tarjeta({ p, i, destacada = false }) {
         <div className="mt-5 text-sm">
           {p.privado ? (
             <span className="inline-flex items-center gap-1.5 text-muted italic">
-              <Lock className="size-3.5" /> Código privado de la empresa
+              <Lock className="size-3.5" /> {p.categoria === "Laboral" ? "Código privado de la empresa" : "Código privado"}
             </span>
           ) : (
             <div className="flex flex-wrap gap-x-5 gap-y-2">
@@ -113,6 +113,11 @@ function Tarjeta({ p, i, destacada = false }) {
               <a href={p.repo} target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 font-semibold underline-offset-4 hover:underline">
                 <GithubIcon className="size-4" /> Ver en GitHub
               </a>
+              {p.descarga && (
+                <a href={p.descarga} target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 font-semibold underline-offset-4 hover:underline">
+                  <Download className="size-4" /> Descargar
+                </a>
+              )}
               {p.apk && (
                 <a href={p.apk} target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 font-semibold underline-offset-4 hover:underline">
                   <Smartphone className="size-4" /> App Android

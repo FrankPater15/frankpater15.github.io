@@ -232,3 +232,56 @@ export function AnimacionOCR() {
     </Ventana>
   );
 }
+
+// ============================================================
+//  3. Radar de empleo: el radar gira y las ofertas aparecen con su
+//     nota de afinidad (datos ficticios).
+// ============================================================
+const DUR_RADAR = 6;
+
+export function AnimacionRadar() {
+  const { ref, anim } = useBucle(DUR_RADAR);
+  const ofertas = [
+    ["w-4/5", "4,6", [64, 26], 0.15],
+    ["w-3/5", "4,1", [72, 64], 0.35],
+    ["w-2/3", "3,2", [28, 58], 0.55],
+  ];
+
+  return (
+    <Ventana titulo="radar.run" refContenido={ref}>
+      <div className="grid h-full grid-cols-[auto_1fr] items-center gap-5">
+        <div className="relative size-24 overflow-hidden rounded-full border border-line">
+          <span className="absolute inset-[18%] rounded-full border border-line" />
+          <span className="absolute inset-[36%] rounded-full border border-line" />
+          <motion.div
+            className="absolute inset-0 rounded-full opacity-60"
+            style={{ background: "conic-gradient(transparent 70%, var(--accent))" }}
+            {...anim({ rotate: [0, 720] }, [0, 1], "linear")}
+          />
+          {ofertas.map(([, nota, [x, y], t]) => (
+            <motion.span
+              key={nota}
+              className="absolute size-2 rounded-full bg-accent"
+              style={{ left: `${x}%`, top: `${y}%` }}
+              {...anim({ opacity: [0, 0, 1, 1, 0], scale: [0, 0, 1, 1, 0] }, [0, t, t + 0.04, 0.95, 1])}
+            />
+          ))}
+        </div>
+        <div className="space-y-2">
+          {ofertas.map(([ancho, nota, , t]) => (
+            <motion.div
+              key={nota}
+              className="flex items-center gap-2 rounded-md border border-line p-1.5"
+              {...anim({ opacity: [0, 0, 1, 1, 0], x: [8, 8, 0, 0, 8] }, [0, t + 0.04, t + 0.1, 0.95, 1])}
+            >
+              <div className="min-w-0 flex-1">
+                <div className={`h-1.5 rounded-full bg-accent/60 ${ancho}`} />
+              </div>
+              <span className="font-mono text-[10px] font-semibold text-ink">{nota}</span>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </Ventana>
+  );
+}

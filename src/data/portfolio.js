@@ -133,6 +133,29 @@ export const proyectos = [
     apk: "https://github.com/FrankPater15/NailSoftMejorado/releases/latest",
   },
   {
+    nombre: "Minimapa de Origins (BO2 Zombies)",
+    icono: "Map",
+    color: "#60a5fa",
+    categoria: "Personal",
+    descripcion:
+      "Mod de fans para Black Ops II en Plutonium T6: un minimapa que gira contigo, muestra zombis y Panzer en vivo, avisa si atacan tus generadores y abre el mapa completo con una tecla. Probado en solitario.",
+    stack: ["GSC", "Lua", "Python"],
+    imagen: "proyectos/minimapa.jpg",
+    repo: "https://github.com/FrankPater15/BO2-Origins-Minimap",
+    descarga: "https://github.com/FrankPater15/BO2-Origins-Minimap/releases/latest",
+  },
+  {
+    nombre: "Radar de Empleo CO",
+    icono: "Radar",
+    color: "#34d399",
+    categoria: "Personal",
+    descripcion:
+      "Agente personal que reúne ofertas de empleo desde APIs públicas, elimina duplicados, las prefiltra y las puntúa con IA según mi perfil. Tiene un panel web para el seguimiento y una corrida diaria automática. No se postula solo: la decisión es mía.",
+    stack: ["Python", "FastAPI", "SQLAlchemy", "Gemini", "Pydantic", "pytest"],
+    animacion: "radar",
+    privado: true,
+  },
+  {
     nombre: "Este portafolio",
     icono: "Code2",
     color: "#fbbf24",
