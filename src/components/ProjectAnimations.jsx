@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { Check, MousePointer2 } from "lucide-react";
+import { Check, MousePointer2, Play } from "lucide-react";
 
 // ------------------------------------------------------------
 //  Animaciones en bucle para las portadas de proyectos sin captura.
@@ -281,6 +281,63 @@ export function AnimacionRadar() {
             </motion.div>
           ))}
         </div>
+      </div>
+    </Ventana>
+  );
+}
+
+// ============================================================
+//  4. Clipper: el chat sube, se marca el pico y sale el clip vertical
+//     con sus subtítulos.
+// ============================================================
+const DUR_CLIPPER = 6;
+
+export function AnimacionClipper() {
+  const { ref, anim } = useBucle(DUR_CLIPPER);
+  const barras = [18, 26, 20, 34, 28, 46, 84, 100, 78, 40, 30, 22, 28, 18];
+  const pico = (i) => i >= 6 && i <= 8;
+
+  return (
+    <Ventana titulo="clipper.py" refContenido={ref}>
+      <div className="grid h-full grid-cols-[1fr_auto] items-center gap-5">
+        {/* Actividad del chat */}
+        <div>
+          <p className="mb-2 font-mono text-[9px] leading-none text-muted">chat</p>
+          <div className="relative flex h-18 items-end gap-1">
+            {barras.map((alto, i) => (
+              <motion.span
+                key={i}
+                className={`flex-1 origin-bottom rounded-sm ${pico(i) ? "bg-accent" : "bg-muted/40"}`}
+                style={{ height: `${alto}%` }}
+                {...anim({ scaleY: [0, 0, 1, 1, 0] }, [0, 0.03 + i * 0.025, 0.09 + i * 0.025, 0.95, 1])}
+              />
+            ))}
+            {/* Marco de recorte sobre el pico */}
+            <motion.span
+              className="absolute -inset-y-1 rounded-md border-2 border-dashed border-accent"
+              style={{ left: `${(5.8 / 14) * 100}%`, width: `${(3.4 / 14) * 100}%` }}
+              {...anim({ opacity: [0, 0, 1, 1, 0], scale: [1.4, 1.4, 1, 1, 1] }, [0, 0.46, 0.54, 0.95, 1])}
+            />
+          </div>
+        </div>
+
+        {/* Clip vertical */}
+        <motion.div
+          className="relative h-25 w-14 overflow-hidden rounded-lg border border-line bg-accent-soft"
+          {...anim({ opacity: [0, 0, 1, 1, 0], x: [-14, -14, 0, 0, 0] }, [0, 0.58, 0.67, 0.95, 1])}
+        >
+          <span className="absolute inset-x-0 top-7 mx-auto grid size-6 place-items-center rounded-full bg-accent text-bg">
+            <Play className="size-3 fill-current" />
+          </span>
+          <motion.span
+            className="absolute bottom-5 left-2 h-1.5 w-10 origin-left rounded-full bg-accent"
+            {...anim({ scaleX: [0, 0, 1, 1, 0] }, [0, 0.68, 0.76, 0.95, 1], "linear")}
+          />
+          <motion.span
+            className="absolute bottom-2.5 left-2 h-1.5 w-7 origin-left rounded-full bg-accent/60"
+            {...anim({ scaleX: [0, 0, 1, 1, 0] }, [0, 0.76, 0.82, 0.95, 1], "linear")}
+          />
+        </motion.div>
       </div>
     </Ventana>
   );

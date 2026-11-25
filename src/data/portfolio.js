@@ -37,7 +37,7 @@ export const frase =
 
 export const sobreMi = [
   "Lo que más disfruto es entender cómo trabaja un equipo y ver dónde la tecnología le puede ahorrar tiempo: un formulario que se llena solo, un documento que se valida sin revisarlo a mano o un reporte que llega listo.",
-  "Me importa que lo que entrego funcione y se pueda mantener, me comunico con claridad y me adapto rápido a herramientas nuevas. Ahora busco mi primera posición como desarrollador para aportar a un equipo y seguir creciendo.",
+  "Me importa que lo que entrego funcione y se pueda mantener, me comunico con claridad y me adapto rápido a herramientas nuevas. Ahora busco un equipo donde aportar lo que aprendí construyendo Astrum y seguir creciendo.",
 ];
 
 export const estadisticas = [
@@ -98,6 +98,29 @@ export const proyectos = [
     destacado: true,
   },
   {
+    nombre: "Minimapa de Origins (BO2 Zombies)",
+    icono: "Map",
+    color: "#60a5fa",
+    categoria: "Personal",
+    descripcion:
+      "Mod de fans para Black Ops II en Plutonium T6: un minimapa que gira contigo, muestra zombis y Panzer en vivo, avisa si atacan tus generadores y abre el mapa completo con una tecla. Probado en solitario.",
+    stack: ["GSC", "Lua", "Python"],
+    imagen: "proyectos/minimapa.jpg",
+    repo: "https://github.com/FrankPater15/BO2-Origins-Minimap",
+    descarga: "https://github.com/FrankPater15/BO2-Origins-Minimap/releases/latest",
+  },
+  {
+    nombre: "Radar de Empleo CO",
+    icono: "Radar",
+    color: "#34d399",
+    categoria: "Personal",
+    descripcion:
+      "Agente personal que reúne ofertas de empleo desde APIs públicas, elimina duplicados, las prefiltra y las puntúa con IA según mi perfil. Tiene un panel web para el seguimiento y una corrida diaria automática. No se postula solo: la decisión es mía.",
+    stack: ["Python", "FastAPI", "SQLAlchemy", "Gemini", "Pydantic", "pytest"],
+    animacion: "radar",
+    repo: "https://github.com/FrankPater15/Radar-Empleos",
+  },
+  {
     nombre: "Robots RPA para certificados digitales",
     icono: "Bot",
     color: "#a78bfa",
@@ -105,7 +128,7 @@ export const proyectos = [
     descripcion:
       "Robots que radican y renuevan certificados digitales. Una persona aprueba los pasos clave y el robot se encarga del resto, incluidos los captchas.",
     stack: ["Python", "Playwright", "RPA"],
-    animacion: "rpa", // portada animada (rpa | ocr)
+    animacion: "rpa", // portada animada (rpa | ocr | radar | clipper)
     privado: true,
   },
   {
@@ -133,29 +156,6 @@ export const proyectos = [
     apk: "https://github.com/FrankPater15/NailSoftMejorado/releases/latest",
   },
   {
-    nombre: "Minimapa de Origins (BO2 Zombies)",
-    icono: "Map",
-    color: "#60a5fa",
-    categoria: "Personal",
-    descripcion:
-      "Mod de fans para Black Ops II en Plutonium T6: un minimapa que gira contigo, muestra zombis y Panzer en vivo, avisa si atacan tus generadores y abre el mapa completo con una tecla. Probado en solitario.",
-    stack: ["GSC", "Lua", "Python"],
-    imagen: "proyectos/minimapa.jpg",
-    repo: "https://github.com/FrankPater15/BO2-Origins-Minimap",
-    descarga: "https://github.com/FrankPater15/BO2-Origins-Minimap/releases/latest",
-  },
-  {
-    nombre: "Radar de Empleo CO",
-    icono: "Radar",
-    color: "#34d399",
-    categoria: "Personal",
-    descripcion:
-      "Agente personal que reúne ofertas de empleo desde APIs públicas, elimina duplicados, las prefiltra y las puntúa con IA según mi perfil. Tiene un panel web para el seguimiento y una corrida diaria automática. No se postula solo: la decisión es mía.",
-    stack: ["Python", "FastAPI", "SQLAlchemy", "Gemini", "Pydantic", "pytest"],
-    animacion: "radar",
-    repo: "https://github.com/FrankPater15/Radar-Empleos",
-  },
-  {
     nombre: "Clipper",
     icono: "Scissors",
     color: "#fb7185",
@@ -163,18 +163,8 @@ export const proyectos = [
     descripcion:
       "Herramienta para streamers que no quieren pasar horas editando: encuentra los mejores momentos del directo con los picos del chat e IA, recorta y subtitula los clips, y los deja listos para revisar en un panel.",
     stack: ["Python", "FFmpeg", "Gemini"],
+    animacion: "clipper",
     privado: true,
-  },
-  {
-    nombre: "Este portafolio",
-    icono: "Code2",
-    color: "#fbbf24",
-    categoria: "Personal",
-    descripcion:
-      "Sitio personal en React con scroll suave (Lenis), animaciones ligadas al scroll con Framer Motion, cursor personalizado, modo claro/oscuro y despliegue automático con GitHub Actions.",
-    stack: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Lenis"],
-    imagen: "proyectos/portafolio.jpg",
-    repo: "https://github.com/FrankPater15/frankpater15.github.io",
   },
 ];
 
