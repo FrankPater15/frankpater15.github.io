@@ -1,9 +1,9 @@
-import { ArrowUpRight, Bot, Code2, Download, Globe, Lock, Map, Monitor, Radar, ScanText, Smartphone, Sparkles } from "lucide-react";
+import { ArrowUpRight, Bot, Code2, Download, Globe, Lock, Map, Monitor, Radar, ScanText, Scissors, Smartphone, Sparkles } from "lucide-react";
 import { proyectos } from "../data/portfolio";
 import { AnimacionOCR, AnimacionRadar, AnimacionRPA } from "./ProjectAnimations";
 import { GithubIcon, publico, Reveal, Section, TiltCard } from "./ui";
 
-const iconos = { Monitor, Bot, ScanText, Sparkles, Code2, Map, Radar };
+const iconos = { Monitor, Bot, ScanText, Sparkles, Code2, Map, Radar, Scissors };
 // Portadas animadas para proyectos sin captura (campo "animacion" en portfolio.js)
 const animaciones = { rpa: AnimacionRPA, ocr: AnimacionOCR, radar: AnimacionRadar };
 

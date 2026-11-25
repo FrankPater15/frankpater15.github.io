@@ -153,6 +153,16 @@ export const proyectos = [
       "Agente personal que reúne ofertas de empleo desde APIs públicas, elimina duplicados, las prefiltra y las puntúa con IA según mi perfil. Tiene un panel web para el seguimiento y una corrida diaria automática. No se postula solo: la decisión es mía.",
     stack: ["Python", "FastAPI", "SQLAlchemy", "Gemini", "Pydantic", "pytest"],
     animacion: "radar",
+    repo: "https://github.com/FrankPater15/Radar-Empleos",
+  },
+  {
+    nombre: "Clipper",
+    icono: "Scissors",
+    color: "#fb7185",
+    categoria: "Personal",
+    descripcion:
+      "Herramienta para streamers que no quieren pasar horas editando: encuentra los mejores momentos del directo con los picos del chat e IA, recorta y subtitula los clips, y los deja listos para revisar en un panel.",
+    stack: ["Python", "FFmpeg", "Gemini"],
     privado: true,
   },
   {
