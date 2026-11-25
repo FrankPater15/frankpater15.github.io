@@ -107,6 +107,7 @@ export const proyectos = [
     stack: ["GSC", "Lua", "Python"],
     imagen: "proyectos/minimapa.jpg",
     repo: "https://github.com/FrankPater15/BO2-Origins-Minimap",
+    video: "https://youtube.com/shorts/sDCiI5q1efg",
     descarga: "https://github.com/FrankPater15/BO2-Origins-Minimap/releases/latest",
   },
   {

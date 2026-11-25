@@ -1,4 +1,4 @@
-import { ArrowUpRight, Bot, Code2, Download, Globe, Lock, Map, Monitor, Radar, ScanText, Scissors, Smartphone, Sparkles } from "lucide-react";
+import { ArrowUpRight, Bot, Code2, Download, Globe, Lock, Map, Monitor, Play, Radar, ScanText, Scissors, Smartphone, Sparkles } from "lucide-react";
 import { proyectos } from "../data/portfolio";
 import { AnimacionClipper, AnimacionOCR, AnimacionRadar, AnimacionRPA } from "./ProjectAnimations";
 import { GithubIcon, publico, Reveal, Section, TiltCard } from "./ui";
@@ -105,6 +105,11 @@ function Tarjeta({ p, i, destacada = false }) {
             </span>
           ) : (
             <div className="flex flex-wrap gap-x-5 gap-y-2">
+              {p.video && (
+                <a href={p.video} target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 font-semibold underline-offset-4 hover:underline">
+                  <Play className="size-4" /> Ver video
+                </a>
+              )}
               {p.demo && (
                 <a href={p.demo} target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 font-semibold underline-offset-4 hover:underline">
                   <Globe className="size-4" /> Ver demo
