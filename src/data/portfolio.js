@@ -47,11 +47,11 @@ export const estadisticas = [
 ];
 
 export const habilidades = {
-  Backend: ["Node.js", "Express", "Python", "APIs REST", "C#", ".NET"],
-  Frontend: ["React", "Angular", "JavaScript", "HTML", "CSS", "Tailwind CSS", "Vite"],
-  "Bases de datos": ["SQL Server", "MongoDB", "Supabase"],
+  Backend: ["Node.js", "Express", "Python", "Flask", "Socket.IO", "APIs REST", "C#", ".NET"],
+  Frontend: ["React", "Angular", "JavaScript", "HTML", "CSS", "Tailwind CSS", "Vite", "Electron"],
+  "Bases de datos": ["SQL Server", "PostgreSQL", "MongoDB", "Supabase", "Firebase"],
   Móvil: ["Flutter", "Dart"],
-  Automatización: ["RPA con Python", "OCR", "IA de visión", "Agentes de IA", "Microsoft Graph"],
+  Automatización: ["RPA con Python", "Playwright", "OCR", "IA de visión", "Agentes de IA", "Microsoft Graph"],
   Herramientas: ["Git", "GitHub", "Postman", "CI/CD", "Azure (básico)", "Claude Code", "Pruebas automatizadas", "Metodologías ágiles"],
 };
 
@@ -92,7 +92,7 @@ export const proyectos = [
     categoria: "Laboral",
     descripcion:
       "Aplicación de escritorio interna para los equipos de operación, comercial y PM, con actualización automática y firma de código.",
-    stack: ["C#", ".NET", "CI/CD", "Pruebas"],
+    stack: ["C#", ".NET", "Python", "Flask", "React", "Electron", "PostgreSQL", "CI/CD", "Pruebas"],
     imagen: "proyectos/astrum.jpg", // captura en /public (opcional)
     privado: true,
     destacado: true,
@@ -104,7 +104,7 @@ export const proyectos = [
     categoria: "Laboral",
     descripcion:
       "Robots que radican y renuevan certificados digitales. Una persona aprueba los pasos clave y el robot se encarga del resto, incluidos los captchas.",
-    stack: ["RPA", "Automatización"],
+    stack: ["Python", "Playwright", "RPA"],
     animacion: "rpa", // portada animada (rpa | ocr)
     privado: true,
   },
